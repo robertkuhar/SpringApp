@@ -20,7 +20,7 @@
 		</fileset>
 		<pathelement path="${build.dir}" />
 	</path>
-
+	
 	<target name="build" description="Compile main source tree java files">
 		<mkdir dir="${build.dir}" />
 		<javac destdir="${build.dir}" source="1.5" target="1.5" debug="true" deprecation="false" optimize="false" failonerror="true">
