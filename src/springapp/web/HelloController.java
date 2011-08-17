@@ -1,16 +1,14 @@
 package springapp.web;
 
-import org.springframework.web.servlet.mvc.Controller;
-import org.springframework.web.servlet.ModelAndView;
+import java.io.*;
+import java.util.*;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import java.io.IOException;
+import org.apache.commons.logging.*;
+import org.springframework.web.servlet.*;
+import org.springframework.web.servlet.mvc.*;
 
 public class HelloController implements Controller {
 
@@ -19,9 +17,10 @@ public class HelloController implements Controller {
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
 
-        logger.info("Returning hello view");
+        String now = (new Date()).toString();
+        logger.info("Returning hello view with " + now);
 
-        return new ModelAndView("hello.jsp");
+        return new ModelAndView("WEB-INF/jsp/hello.jsp", "now", now);
     }
 
 }
