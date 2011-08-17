@@ -1,6 +1,7 @@
 /dist
+.ant-targets-build.xml
 
-*\.class
+*.class
 build/classes
 
 # OSX
