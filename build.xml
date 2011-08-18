@@ -20,9 +20,20 @@
 		</fileset>
 		<pathelement path="${build.dir}" />
 	</path>
-	
+
+	<target name="clean" description="Clean output directories">
+		<delete>
+			<fileset dir="${build.dir}">
+				<include name="**/*.class" />
+			</fileset>
+		</delete>
+	</target>
+
 	<target name="build" description="Compile main source tree java files">
 		<mkdir dir="${build.dir}" />
+		<copy todir="${build.dir}">
+			<fileset dir="${src.dir}" excludes="**/*.java" />
+		</copy>
 		<javac destdir="${build.dir}" source="1.5" target="1.5" debug="true" deprecation="false" optimize="false" failonerror="true">
 			<src path="${src.dir}" />
 			<classpath refid="master-classpath" />
@@ -36,7 +47,7 @@
 			</fileset>
 		</war>
 	</target>
-	
+
 	<target name="buildtests" description="Compile test tree java files">
 		<mkdir dir="${build.dir}" />
 		<javac destdir="${build.dir}" source="1.5" target="1.5" debug="true" deprecation="false" optimize="false" failonerror="true">

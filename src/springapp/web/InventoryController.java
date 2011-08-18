@@ -28,7 +28,7 @@ public class InventoryController implements Controller {
         myModel.put("now", now);
         myModel.put("products", this.productManager.getProducts());
 
-        return new ModelAndView("hello", "model", myModel);
+        return new ModelAndView("inventory", "model", myModel);
     }
 
     public void setProductManager(ProductManager productManager) {
